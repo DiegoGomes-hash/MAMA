@@ -1,0 +1,43 @@
+.imglogo {
+        margin: auto;
+        display: block;
+        height: 125px;
+        width: auto !important;
+        margin-top: 70px;
+        margin-bottom: 15px;
+}
+
+ion-header {
+        ion-title {
+                color: white;
+                text-align: center;
+        }
+}
+
+form {
+        ion-button {
+                margin: auto;
+                display: block;
+        }
+
+        p {
+                color: #ff0000;
+                text-align: center;
+        }
+}
+
+ion-input {
+        font-size: 1, 5em;
+        margin: 2px;
+}
+
+ion-input[name] {
+        font-size: 20px;
+}
+
+ion-item {
+        --background: rgb(240, 237, 237) !important;
+        margin-top: 10px;
+        border-radius: 10px;
+        margin: 5px;
+}

@@ -1,0 +1,140 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center Title Align">MAMA </ion-title>
+    <ion-buttons (click)="Deslogar()" slot="end" color="light" size="large">
+      <ion-icon color="light" size="large" name="log-out"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large"> MAMA </ion-title>
+
+      <ion-buttons (click)="Deslogar()" slot="end" color="light" size="large">
+        <ion-icon color="light" size="large" name="log-out"></ion-icon>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card class="welcome-card">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img class="imglogo" src="assets/duda.jpg">
+            </ion-col>
+            <ion-col>
+              <!-- <center>
+                                
+                            </center> -->
+              <ion-text classe="MensagemOiDuda" color="primary">
+                Oi! Eu sou a Duda! Bem vindo(a) ao MAMA!
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngFor="let message of mensagens">
+      <ion-grid *ngIf="message.pergunta != '' && message.pergunta != null ">
+        <ion-row>
+          <ion-col class="ion-text-left">
+            <ion-button class="mensagemPergunta ion-text-left" float-right fill="outline" end Slots="end"
+              color="primary" size="small" blocked>
+              {{ message.pergunta }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="message.resposta != '' && message.resposta != null">
+        <ion-row>
+          <ion-col class="ion-text-right">
+
+            <ion-button class="mensagemResposta" float-right fill="outline" end Slots="end" size="small"
+              color="secondary" blocked>
+              {{ message.resposta }}
+            </ion-button>
+
+
+
+            <!-- class="ion-text-right"
+                            
+                            size="12" class="font-size: 12px!important; ion-text-right"-->
+            <!-- float-right fill="outline" end Slots="end" style="font-size: 10px!important; white-space: normal;
+ text-align: right;" size="small" color="secondary" blocked-->
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <ion-grid *ngFor="let botao of botoes">
+      <ion-row>
+        <ion-col *ngIf="botao != null && botao.opcao1 != null && botao.opcao1 != ''">
+          <ion-button (click)="res = botao.opcao1" size="small" ion-button color="tertiary"
+            style="margin: auto; display:block; font-size: 10px!important;" type="submit" outline>
+            {{botao.opcao1}}
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="botao != null && botao.opcao2 != null && botao.opcao2 != ''">
+          <ion-button (click)="res = botao.opcao2" size="small" ion-button color="tertiary"
+            style="margin: auto; display:block; font-size: 10px!important;" type="submit" outline>
+            {{botao.opcao2}}
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="botao != null && botao.opcao3 != null && botao.opcao3 != ''">
+          <ion-button (click)="res = botao.opcao3" size="small" ion-button color="tertiary"
+            style="margin: auto; display:block; font-size: 10px!important;" type="submit" outline>
+            {{botao.opcao3}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+          <form>
+            <ion-item>
+              <ion-textarea readonly="readonly" [(ngModel)]="res" name="mensagem" value="res"
+                placeholder="Sua resposta..." type="textarea">
+              </ion-textarea>
+            </ion-item>
+          </form>
+        </ion-col>
+        <ion-col size="3">
+          <ion-fab-button (click)="responder()" size="small" position="bottom" color="primary">
+            <ion-icon name="navigate-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button class="ButtonStyle" (click)="takeSnap()" ion-button color="primary" type="submit" outline>
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="ButtonStyle" ion-button color="tertiary" type="submit" outline>
+            <ion-icon name="brush"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <img [src]="capturedSnapURL" />
+  </div>
+</ion-content>

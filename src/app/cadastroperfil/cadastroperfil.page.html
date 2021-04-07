@@ -1,0 +1,149 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="color : white;">MAMA</ion-title>
+        <ion-buttons *ngIf="sim == true" slot="end" color="light" size="large">
+            <ion-icon style="color : white;" color="light" size="large" name="log-out"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="loadForm">
+
+        <ion-item>
+            <ion-label class="CadNome" floating>
+                <ion-icon color="primary" name="person" item-left></ion-icon>
+            </ion-label>
+            <ion-input [(ngModel)]="data.nome" formControlName="nome" name="nome" placeholder="Nome Completo" type="text">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="Houver" floating>
+                <ion-icon color="primary" name="person" item-left></ion-icon> Gênero
+            </ion-label>
+            <ion-select name="genero" formControlName="genero" [(ngModel)]="data.genero">
+                <ion-select-option name="genero" value="2">Masculino
+                </ion-select-option>
+                <ion-select-option name="genero" value="1">Feminino
+                </ion-select-option>
+                <ion-select-option name="genero" value="1">Prefiro não informar
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="DMADiagn" floating>
+                <ion-icon color="primary" name="calendar" item-left></ion-icon>
+            </ion-label>
+            <ion-input name="diadiag" formControlName="diadiag" [(ngModel)]="data.diadiag" placeholder="Dia do Diagnóstico" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="DMADiagn" floating>
+                <ion-icon color="primary" name="calendar" item-left></ion-icon>
+            </ion-label>
+            <ion-input name="mesdiag" formControlName="mesdiag" [(ngModel)]="data.mesdiag" placeholder="Mês do Diagnóstico" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="DMADiagn" floating>
+                <ion-icon color="primary" name="calendar" item-left></ion-icon>
+            </ion-label>
+            <ion-input name="anodiag" formControlName="anodiag" [(ngModel)]="data.anodiag" placeholder="Ano do Diagnóstico" type="number"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label class="ESCPPATabColor" floating>
+                <ion-icon color="primary" name="mail" item-left></ion-icon>
+            </ion-label>
+            <ion-input [(ngModel)]="data.email" formControlName="email" name="email" placeholder="Email" type="text">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="ESCPPATabColor" floating>
+                <ion-icon color="primary" name="lock-closed" item-left></ion-icon>
+            </ion-label>
+            <ion-input [(ngModel)]="data.senha" formControlName="senha" name="senha" placeholder="Sua Senha de Acesso ao MAMA" type="password">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="ESCPPATabColor" floating>
+                <ion-icon name="ellipse" color="primary" item-left></ion-icon>
+            </ion-label>
+            <ion-input name="cintura" type="number" [(ngModel)]="data.cintura" formControlName="cintura" placeholder="Circunferencia da Cintura (cm)?">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="ESCPPATabColor" style="color : #808080;" floating>
+                <ion-icon color="primary" name="trending-up" item-left></ion-icon> Seu peso aumentou quando adulto?
+            </ion-label>
+            <ion-select name="aumentou" formControlName="aumentou" [(ngModel)]="data.aumentou">
+                <ion-select-option name="aumentou" value="Sim">Sim
+                </ion-select-option>
+                <ion-select-option name="aumentou" value="Não">Não
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-row>
+            <ion-col col-10>
+                <ion-item>
+                    <ion-label class="ESCPPATabColor" floating>
+                        <ion-icon color="primary" name="barbell" item-left></ion-icon>
+                    </ion-label>
+                    <ion-input name="pesoatual" formControlName="pesoatual" placeholder="Peso Atual" [(ngModel)]="data.pesoatual" type="number">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-2>
+                <ion-item>
+                    <ion-label class="ESCPPATabColor" floating>
+                        <ion-icon color="primary" name="woman" item-left></ion-icon>
+                    </ion-label>
+                    <ion-input name="estatura" formControlName="estatura" placeholder="Altura" [(ngModel)]="data.estatura" type="number"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-8>
+                <ion-item>
+                    <ion-label class="ESCPPATabColor" floating>
+                        <ion-icon color="primary" name="barbell" item-left></ion-icon>
+                    </ion-label>
+                    <ion-input name="pesohabitual" placeholder="Peso Habitual" formControlName="pesohabitual" [(ngModel)]="data.pesohabitual" type="number">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-4>
+                <ion-item>
+                    <ion-label class="ESCPPATabColor" floating>
+                        <ion-icon color="primary" name="woman" item-left></ion-icon>
+                    </ion-label>
+                    <ion-input name="idade" placeholder="Idade" formControlName="idade" [(ngModel)]="data.idade" type="number">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+    </form>
+
+    <p *ngIf="data.pesoatual != null && data.estatura != null" style="color : #d738ff;"> IMC: {{ data.pesoatual/(data.estatura*data.estatura) }} </p>
+
+    <br>
+    <ion-button *ngIf="sim != true" class="ButtonCad" [disabled]="!loadForm.valid" (click)="submitForm()" color="primary" outline>CADASTRAR
+    </ion-button>
+    <ion-button *ngIf="sim == true" [disabled]="!loadForm.valid" (click)="atualizar()" color="primary" class="ButtonCad" outline>ATUALIZAR
+    </ion-button>
+    <br>
+</ion-content>

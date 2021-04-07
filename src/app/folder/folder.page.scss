@@ -1,0 +1,73 @@
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-light);
+}
+
+ion-menu-button {
+  --color: var(--ion-color-primary);
+}
+
+.Align {
+  margin-right: 22px;
+}
+
+.Title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.imglogo {
+  height: 175px;
+  width: auto;
+}
+
+ion-icon {
+  color: white;
+}
+
+ion-text {
+  font-size: 15px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.MensagemOiDuda {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15555px;
+}
+
+.mensagemPergunta {
+  max-width: 1100px;
+  max-height: 1000px;
+  height: fit-content;
+  width: fit-content;
+  margin-bottom: 2;
+  margin-top: 2;
+  text-transform: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12px;
+  white-space: normal;
+  padding: none;
+  float: left;
+}
+
+.mensagemResposta {
+  max-height: 1000px;
+  width: fit-content;
+  height: fit-content;
+  max-width: 1000px;
+  margin-bottom: 2;
+  margin-top: 2;
+  text-transform: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12px;
+  white-space: normal;
+  padding: none;
+}
+
+.ButtonStyle {
+  margin: auto;
+  display: block;
+}

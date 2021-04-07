@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>MAMA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title style="color : white;" size="large"> MAMA </ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <img class="imglogo" src="assets/duda.jpg">
+
+    <form>
+      <ion-item>
+        <ion-input [(ngModel)]="model.email" name="email" placeholder=" Email" type="text">
+        </ion-input>
+        <ion-icon color="primary" name="mail-outline" item-right></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="model.senha" name="senha" placeholder=" Senha" type="password">
+
+        </ion-input>
+        <ion-icon color="primary" name="key-outline" item-right></ion-icon>
+      </ion-item>
+      <br>
+      <ion-button (click)="login()" ion-button color="primary" type="submit" outline>LOGIN
+      </ion-button>
+      <br>
+      <ion-button (click)="cadastrar()" ion-button color="primary" type="submit" outline>CADASTRAR
+      </ion-button>
+      <p>Esqueceu a senha?</p>
+    </form>
+
+  </ion-content>
